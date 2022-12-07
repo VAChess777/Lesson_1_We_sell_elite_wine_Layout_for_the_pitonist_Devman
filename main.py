@@ -12,7 +12,7 @@ env = Environment(
 template = env.get_template('vine_template.html')
 
 
-opening_winery_year = 1920
+# opening_winery_year = 1920
 
 
 def get_years(opening_winery_year):
