@@ -38,7 +38,7 @@ def render_page(excel_file, opening_winery_year):
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
     )
-    template = env.get_template('vine_template.html')
+    template = env.get_template('template.html')
     winery_age = f'Уже {get_years(opening_winery_year)} с вами:'
     rendered_page = template.render(
         winery_age=winery_age,
