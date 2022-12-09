@@ -22,9 +22,9 @@ def get_years(opening_winery_year):
         return f'{age_delta} лет'
 
 
-def get_goods(file):
+def get_goods(excel_filepath):
     goods_category = pandas.read_excel(
-        file,
+        excel_filepath,
         keep_default_na=False
     ).to_dict(orient="records")
     goods_cards = defaultdict(list)
@@ -33,7 +33,7 @@ def get_goods(file):
     return goods_cards
 
 
-def render_page(excel_file, opening_winery_year):
+def render_page(excel_filepath, opening_winery_year):
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -42,7 +42,7 @@ def render_page(excel_file, opening_winery_year):
     winery_age = f'Уже {get_years(opening_winery_year)} с вами:'
     rendered_page = template.render(
         winery_age=winery_age,
-        goods_cards=get_goods(excel_file)
+        goods_cards=get_goods(excel_filepath)
     )
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
@@ -50,10 +50,10 @@ def render_page(excel_file, opening_winery_year):
 
 def main():
     load_dotenv()
-    excel_file_name = os.getenv('EXCEL_FILE')
-    excel_file = Path(pathlib.Path.cwd(), excel_file_name)
+    excel_filename = os.getenv('EXCEL_FILE')
+    excel_filepath = Path(pathlib.Path.cwd(), excel_filename)
     opening_winery_year = os.getenv('OPENING_WINERY_YEAR')
-    render_page(excel_file, opening_winery_year)
+    render_page(excel_filepath, opening_winery_year)
     server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
     server.serve_forever()
 
