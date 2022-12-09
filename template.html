@@ -103,14 +103,14 @@
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">{{ goods_category }}</h2>
           </div>
-            {% for goods in goods_card %}
+          {% for goods in goods_card %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
               <img src="images/{{  goods.Картинка  }}" alt="Image" class="img-fluid">
-                {% if goods.Акция %}
+              {% if goods.Акция %}
               <img src="assets/profitable.png"
                 style="width:10rem; height: 10rem; position:absolute; right: -20px; top: -20px;">
-                {% endif %}
+              {% endif %}
               <div>
                 <h3 class="heading mt-3 mb-3 text-dark"> {{ goods.Название }} </h3>
                 <p>
@@ -123,7 +123,7 @@
               </div>
             </div>
           </div>
-            {% endfor %}
+          {% endfor %}
           {% endfor %}
         </div>
       </div>
