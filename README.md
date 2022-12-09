@@ -47,10 +47,10 @@ The program contains a ready-made template for a website for the sale of wines:
 
 The `main.py` program contains the functions:
 
-* The `fix_marks` function - corrects a student's bad grades.
-* The `remove_chastisements` function - deletes student's comments in the diary from teachers.
-* The `create_commendation` function - creates in the diary good reviews from teachers for the student.
-* The `create_parser` function - parser function.
+* The `get_years` function - calculates the difference between the store opening and the present time.
+Also returns the correct meaning of the word `год`, `года`, `лет`, in Russian, depending on the above difference in years.
+* The `get_goods` function - retrieves all product information from the `excel file`. Brings this data to the required form for display on the site page.
+* The `render_page` function - makes the necessary changes to the website template.
 * The `main` function - main function.
 
 ### Project Goals
