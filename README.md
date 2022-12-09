@@ -22,31 +22,27 @@ pip install -r requirements.txt
 
 ### About environment variables:
 
-The program `settings.py ` there are environment variables in the `project` folder that are responsible for configuring access to the database.
-create a `.env` file, place it in the root directory of the program. Put the following data in the `.env` file in the `key=value` format.
+In the program `main.py ` there are environment variables.
+Create a `.env` file, place it in the root directory of the program. Put the following data in the `.env` file in the `key=value` format.
                                                                
-`DB_NAME=` - Database name. 
-`SECRET_KEY=` - Django secret key.              
-`DEBUG=` - True for enabling debugging mode, False for production. The default value is `False`.                                                         
-`ALLOWED_HOSTS=` - This is a security measure to prevent HTTP Host header attacks, which are possible even under many seemingly-safe web server configurations.
-Example of ALLOWED_HOSTS settings in file. env - `ALLOWED_HOSTS = ['www.djangoproject.dev', 'docs.djangoproject.dev', 'localhost' ...]`. Where
-`www.djangoproject.dev', 'docs.djangoproject.dev, 'localhost'` -  addresses of allowed hosts. The default value is `localhost`.   
+`EXCEL_FILE=` - The name of the `excel file` that contains the store's product range. By default, the project has a file `wine.xlsx `.             
+`OPENING_WINERY_YEAR=` - Date of opening of the winery.              
 
 ### How to run the program:
 
-Enter the command in console: `$ python main.py schoolkid_and_subject {Фролов Иван Математика}`. Enter the last name and first name of the student who needs to pump the diary,
-as well as the subject on which you need to receive praise from the teacher. For example: `python main.py schoolkid_and_subject Фролов Иван Математика`.
+Enter the command in console: `$ python main.py`. 
+
 
 ### How the program works:
 
 The program contains scripts:
 
 ```main.py``` - the main program.  
-```manage.py``` - the program that runs the server.
-```settings.py``` - the program is located in the project folder. Responsible for setting up access to the employee database.   
-```models.py``` - the program is located in the datacenter folder. The program is responsible for data models and their fields.          
-```urls.py``` - the program is located in the project folder. Responsible for setting up links to the 'security console' pages.          
-            
+        
+The program contains a ready-made template for a website for the sale of wines:
+
+`template.html` - Template for a website selling wines.
+
 ### Features works of the program:
 
 The `main.py` program contains the functions:
