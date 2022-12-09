@@ -12,7 +12,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def get_years(opening_winery_year):
     year_now = datetime.datetime.now().year
-    age_delta = year_now - opening_winery_year
+    age_delta = year_now - int(opening_winery_year)
     if age_delta % 10 == 1 and age_delta != 11 and age_delta % 100 != 11:
         return f'{age_delta} год'
     elif 1 < age_delta % 10 <= 4 and age_delta != 12 and age_delta != 13\
@@ -52,7 +52,7 @@ def main():
     load_dotenv()
     excel_file_name = os.getenv('EXCEL_FILE')
     excel_file = Path(pathlib.Path.cwd(), excel_file_name)
-    opening_winery_year = int(os.getenv('OPENING_WINERY_YEAR'))
+    opening_winery_year = os.getenv('OPENING_WINERY_YEAR')
     render_page(excel_file, opening_winery_year)
     server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
     server.serve_forever()
